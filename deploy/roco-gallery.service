@@ -1,0 +1,25 @@
+[Unit]
+Description=Roco World Photo Gallery
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=roco-gallery
+Group=roco-gallery
+WorkingDirectory=/opt/roco-gallery
+Environment=NODE_ENV=production
+EnvironmentFile=/opt/roco-gallery/.env
+ExecStart=/usr/bin/node /opt/roco-gallery/server/server.js
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/roco-gallery/data
+
+[Install]
+WantedBy=multi-user.target

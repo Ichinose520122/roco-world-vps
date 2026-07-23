@@ -1,0 +1,16 @@
+{
+  "name": "roco-world-photo-vps",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "一ノ瀬林檎的小洛克冒险之旅 - VPS 版本",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "start": "node server/server.js",
+    "check": "node --test tests/*.test.js",
+    "backup": "node scripts/backup.js",
+    "import:d1": "node scripts/import-d1.js"
+  }
+}

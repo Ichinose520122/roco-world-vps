@@ -1,0 +1,17 @@
+# 将下一行替换为你的正式域名。
+roki.example.com {
+	encode zstd gzip
+
+	request_body {
+		max_size 32MB
+	}
+
+	reverse_proxy 127.0.0.1:3000
+
+	header {
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		-Server
+	}
+}
