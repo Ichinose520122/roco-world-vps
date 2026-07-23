@@ -1,5 +1,6 @@
 services:
   app:
+    image: ghcr.io/ichinose520122/roco:latest
     build: .
     restart: unless-stopped
     env_file:
