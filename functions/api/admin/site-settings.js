@@ -37,9 +37,9 @@ export async function onRequestPost(context) {
       return apiError("标题图模式无效");
     }
     const recentLimit = body.recentLimit === undefined
-      ? ([30, 50].includes(Number(currentRecentLimit)) ? Number(currentRecentLimit) : 30)
+      ? ([30, 50, 100].includes(Number(currentRecentLimit)) ? Number(currentRecentLimit) : 30)
       : Number(body.recentLimit);
-    if (![30, 50].includes(recentLimit)) return apiError("最近更新数量只能是 30 或 50");
+    if (![30, 50, 100].includes(recentLimit)) return apiError("最近更新数量只能是 30、50 或 100");
 
     await setSetting(context.env.DB, "hero_image_id", heroImageId);
     await setSetting(context.env.DB, "hero_mode", heroMode);

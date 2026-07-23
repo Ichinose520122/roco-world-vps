@@ -35,7 +35,7 @@ export async function onRequestGet(context) {
     const heroMode = ["manual", "featured", "all"].includes(savedHeroMode)
       ? savedHeroMode
       : "manual";
-    const recentLimit = [30, 50].includes(Number(savedRecentLimit))
+    const recentLimit = [30, 50, 100].includes(Number(savedRecentLimit))
       ? Number(savedRecentLimit)
       : 30;
     const gallery = buildPublicGallery(rows, visibleCategories, {

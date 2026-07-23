@@ -356,7 +356,7 @@ export async function writePrivateGallerySnapshot(env) {
     settings: {
       heroImageId,
       heroMode: ["manual", "featured", "all"].includes(heroMode) ? heroMode : "manual",
-      recentLimit: [30, 50].includes(Number(recentLimit)) ? Number(recentLimit) : 30,
+      recentLimit: [30, 50, 100].includes(Number(recentLimit)) ? Number(recentLimit) : 30,
     },
     categories: categories.map(({ id, name, sortOrder, visible }) => ({
       id,
@@ -460,7 +460,7 @@ export function buildPublicGallery(rows, categories, options = {}) {
     return Date.parse(b.time.replace(" ", "T")) - Date.parse(a.time.replace(" ", "T"));
   };
 
-  const recentLimit = [30, 50].includes(Number(options.recentLimit))
+  const recentLimit = [30, 50, 100].includes(Number(options.recentLimit))
     ? Number(options.recentLimit)
     : 30;
   const recentImages = visibleEntries

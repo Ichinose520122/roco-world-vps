@@ -20,7 +20,7 @@ const state = {
   activeFriendCount: 0,
 };
 
-const UPLOAD_CONCURRENCY = 4;
+const UPLOAD_CONCURRENCY = 10;
 
 const elements = {
   summary: document.querySelector("#summary"),
@@ -102,7 +102,7 @@ async function loadGallery() {
     state.heroMode = ["manual", "featured", "all"].includes(data.settings?.heroMode)
       ? data.settings.heroMode
       : "manual";
-    state.recentLimit = [30, 50].includes(Number(data.settings?.recentLimit))
+    state.recentLimit = [30, 50, 100].includes(Number(data.settings?.recentLimit))
       ? Number(data.settings.recentLimit)
       : 30;
     state.unreadCommentCount = Number(data.stats?.unreadCommentCount || 0);
